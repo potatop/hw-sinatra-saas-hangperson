@@ -41,7 +41,7 @@ class HangpersonGame
   
   def check_win_or_lose
     return :lose if @wrong_guesses.length >= 7
-    return :win unless self.word_with_guesses.include? '-'
+    return :win if @word !~ /([^#{@guesses}])/i
     :play
   end
   
